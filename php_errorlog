@@ -1,0 +1,10 @@
+[29-Sep-2018 02:44:34 CST6CDT] PHP Fatal error:  Cannot use temporary expression in write context in /home/dorofash/public_html/nmw/application/modules/user/controllers/User.php on line 77
+[29-Sep-2018 02:44:37 CST6CDT] PHP Fatal error:  Cannot use temporary expression in write context in /home/dorofash/public_html/nmw/application/modules/user/controllers/User.php on line 77
+[29-Sep-2018 05:28:44 CST6CDT] PHP Fatal error:  Can't use method return value in write context in /home/dorofash/public_html/nmw/application/modules/user/controllers/User.php on line 136
+[08-Oct-2018 01:50:19 CST6CDT] PHP Fatal error:  Cannot declare class Brief_model, because the name is already in use in /home/dorofash/public_html/nmw/application/modules/job/models/Job_model.php on line 0
+[08-Oct-2018 01:50:29 CST6CDT] PHP Fatal error:  Cannot declare class Brief_model, because the name is already in use in /home/dorofash/public_html/nmw/application/modules/job/models/Job_model.php on line 0
+[12-Oct-2018 05:12:52 CST6CDT] PHP Fatal error:  Cannot use [] for reading in /home/dorofash/public_html/nmw/application/modules/client/views/addEdit.php on line 65
+[12-Oct-2018 07:15:27 CST6CDT] PHP Fatal error:  Cannot use [] for reading in /home/dorofash/public_html/nmw/application/modules/job/views/addEdit.php on line 177
+[15-Oct-2018 05:55:42 CST6CDT] PHP Fatal error:  require_once(): Failed opening required '/home/dorofash/public_html/nmw/system/vendor/autoload.php' (include_path='.:/usr/local/php71/pear') in /home/dorofash/public_html/nmw/application/modules/reports/controllers/Reports.php on line 3
+[15-Oct-2018 06:25:19 CST6CDT] PHP Fatal error:  Cannot redeclare Reports::download() in /home/dorofash/public_html/nmw/application/modules/reports/controllers/Reports.php on line 48
+[15-Oct-2018 06:25:35 CST6CDT] PHP Fatal error:  Cannot redeclare Reports::download() in /home/dorofash/public_html/nmw/application/modules/reports/controllers/Reports.php on line 48
