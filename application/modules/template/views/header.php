@@ -22,7 +22,8 @@
 	<!-- AdminLTE Skins. We have chosen the skin-blue for this starter
 		page. However, you can choose any other skin. Make sure you
 		apply the skin class to the body tag so the changes take effect. -->
-	<link rel="stylesheet" href="<?php echo base_url()?>assets/dist/css/skins/skin-grey.min.css">
+  <link rel="stylesheet" href="<?php echo base_url()?>assets/dist/css/skins/skin-grey.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
@@ -192,17 +193,20 @@
         <li class="treeview">
        <?php if(!empty($permissions)) { ?>
             <?php if(in_array('user_add', $permissions) || in_array('user_list', $permissions)){ ?>
-              <a href="#"><i class="fa fa-user-circle"></i> <span> Bill Types </span>
+              <a href="#"><i class="fas fa-money-bill"></i> <span style="padding-left:1em;"> Bill Types </span>
                 <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
               </a>
               <ul class="treeview-menu">
                 <?php if(in_array('user_add', $permissions)){ ?>
-                  <li><a href="<?php echo base_url()?>billtypes/getTypes"><i class="fa fa-plus"></i> View Types</a></li>
+                  <li><a href="<?php echo base_url()?>billtypes/getTypes"><i class="fa fa-list"></i> View Types</a></li>
                 <?php } ?>
                 <?php if(in_array('user_list', $permissions)){ ?>
-                  <li><a href="<?php echo base_url()?>billtypes/addEdit"><i class="fa fa-list"></i> Edit Types</a></li>
+                  <li><a href="<?php echo base_url()?>billtypes/addTypes"><i class="fa fa-plus"></i> Edit Types</a></li>
+                <?php } ?>
+                <?php if(in_array('user_list', $permissions)){ ?>
+                  <li><a href="<?php echo base_url()?>billtypes/addActivity"><i class="fa fa-plus"></i> Add Sub Categories </a></li>
                 <?php } ?>
               </ul>
           <?php } ?>

@@ -277,5 +277,81 @@ class BillTypes extends MX_Controller {
 
   }
 
+  public function saveTypes(){
+
+
+				$data = $this->input->post();
+
+				// print_r($data);
+				// exit();
+			$save_data = $this->types_model->saveTypesData($data);
+
+
+			$this->session->set_flashdata('message', 'Bill Type Added Succesfully');
+			redirect('billtypes/getTypes');
+			// print_r($save_data);
+				//print_r($save_data);
+
+
+
+
+  }
+
+
+  public function addActivity(){
+
+
+
+		
+	$data['permissions'] = $this->login_model->getPermissions();
+		$data['title'] = "Bill Types List";
+    	$user_id = $this->login_model->get_user_id();
+		$data['jobs'] = $this->types_model->getBillTypes();
+		
+		// print_r($data['jobs']);
+		//  exit();
+		$this->load->view('template/header', $data);
+		$this->load->view('addActivity');
+		$this->load->view('template/footer');
+
+  }
+
+  public function getBillTypesJSON(){
+
+
+	$bill_types = 	$this->types_model->getBillTypes();
+
+
+	echo json_encode($bill_types);
+	//echo json_encode($bill_types);
+
+
+  }
+
+  public function saveActivity(){
+
+
+	$data = $this->input->post();
+	print_r($data);
+
+	$save_activity_data = $this->types_model->saveActivityData($data);
+
+	echo $save_activity_data;
+
+
+  }
+
+  public function getAbbreviationsJSON(){
+
+
+	$abbrevation_types = $this->types_model->getAbbreviations();
+
+
+	echo json_encode($abbrevation_types);
+
+  }
+
+ 
+
 
 }

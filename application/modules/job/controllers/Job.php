@@ -93,6 +93,10 @@ class Job extends MX_Controller {
 
 	  public function savedata()
 	  {
+
+		//$data = $this->input->post();
+		// print_r($data);
+		// exit();
 	    if (!$this->login_model->logged_in())
 	    {
 	      redirect('');
@@ -110,7 +114,7 @@ class Job extends MX_Controller {
 	    $this->form_validation->set_rules('job_title', 'Job Title', 'required');
 	    $this->form_validation->set_rules('bill_type', 'Bill Type', 'required');
 	    $this->form_validation->set_rules('subactivity', 'Subactivity', 'required');
-	    $this->form_validation->set_rules('job_text', 'Job Text', 'required');
+	  	$this->form_validation->set_rules('job_text', 'Job Text', 'required');
         $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
 
 	    if ($this->form_validation->run() == FALSE)
@@ -144,6 +148,7 @@ class Job extends MX_Controller {
 	    {
     		$data = $this->input->post();
 
+			
 			if(empty($this->input->post('job_id')))
 			{
 				//Increment job No based on financial year

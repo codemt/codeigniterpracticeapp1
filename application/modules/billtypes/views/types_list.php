@@ -10,7 +10,7 @@
 						<h1 class="box-title">Bill Types List</h1>
 						<div class="box-tools pull-right">
 							<?php if(in_array('job_add', $permissions)){ ?>
-								<a class="btn btn-block btn-primary" href="<?php echo base_url()?>job/addEdit">Add Bill Type</a>
+								<a class="btn btn-block btn-primary" href="<?php echo base_url()?>billtypes/addTypes">Add Bill Type</a>
 							<?php } ?>
 						</div>
 					</div>
@@ -26,7 +26,7 @@
 							<thead>
 								<tr>
 									<th>Sr. No.</th>
-									<th>Abbrevation </th>
+									<!-- <th>Abbrevation </th> -->
 									<th> Name</th>
 									<!-- <th>Subactivity</th>
 									<th>Brief Created Date</th>
@@ -53,17 +53,11 @@
 								 ?>
 									<tr>
 										<td>	<?php echo ++$i; ?></td>
-										<td>	<?php echo $item['bill_abbreviation']; ?></td>
+									  <!--	<td>	<?php // echo $item['bill_abbreviation']; ?></td> -->
                                         <td>	<?php echo $item['bill_type']; ?></td>
+                                        <td>  	<a href="<?php echo base_url()."job/addEdit/".$item['id']; ?>"><i class="fas fa-pencil-alt"></i></a></td> 
 										<?php } ?>
-                                          <?php if(in_array('job_edit', $permissions)){ ?>  
-                                            <td>
-											<a href="<?php echo base_url()."job/addEdit/".$item['id']; ?>"><i class="fa fa-pencil"></i></a>
-<!-- 											<a href="<?php //echo base_url()."job/getChangestatus/".$item['job_id']; ?>"onclick="return confirm('Are you sure, you want to delete it?');">
-											<i class="fa fa-trash"></i></a> -->
-										    </td>
-                                            
-										<?php } ?>
+                                           
 								    </tr>
 
 								

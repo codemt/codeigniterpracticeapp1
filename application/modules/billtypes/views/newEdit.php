@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 			
-				<form role="form" method="post" action="<?php echo base_url()?>job/savedata" class="form-horizontal">
+				<form role="form" method="post" action="<?php echo base_url()?>billtypes/savetypes" class="form-horizontal">
 					<div class="box">
 						<div class="box-header with-border">
 							<h3 class="box-title job-title"><?php echo( !empty($data['job_id'])? 'Job No: '.$data['bill_type']."/" .str_pad($data['job_no'],5, "0", STR_PAD_LEFT)."/".$data['year'] :  $title );  ?></h3>
@@ -25,7 +25,7 @@
 							<?php if(!empty($data['job_id'])){?>
 								<input type="hidden" value="<?php echo $data['job_id']; ?>" name="job_id" />
 							<?php } ?>							
-							<div class="form-group col-xs-12 col-sm-6">
+							<!-- <div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Client  Name:</label>
 								<div class="col-xs-9">
 									<select <?php echo( !empty($data['job_id'])? 'disabled' : '');?> class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" id="sel_client" name="client_id">
@@ -36,8 +36,8 @@
 									</select>
 									<?php if (form_error('client_id')) echo form_error('client_id'); ?>
 								</div>
-							</div>
-							<div class="form-group col-xs-12 col-sm-6">
+							</div> -->
+							<!-- <div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Brand Name:</label>
 								<div class="col-xs-9">
 									<select <?php echo( !empty($data['job_id'])? 'disabled' : '');?> class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" id="sel_brand" name="brand_name">
@@ -57,28 +57,30 @@
 									</select>
 									<?php if (form_error('brand_name')) echo form_error('brand_name'); ?>
 								</div>
-							</div>
-							<div class="form-group col-xs-12 col-sm-6">
+							</div> -->
+							<!-- <div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Brief No:</label>
 								<div class="col-xs-9">
 									<input <?php echo(!empty($data['job_id'])? 'disabled' : '') ?> value="<?php  echo (!empty( $briefnumber))?  $briefnumber : ''; ?>" type="text" class="form-control" id="briefNumber" disabled>
 									<input value="<?php  echo (!empty($data['brief_id'])) ?  $data['brief_id'] : ''; ?>" type="hidden" name="brief_id" class="form-control" id="briefid">
 								</div>
-							</div>
-							<div class="form-group col-xs-12 col-sm-6">
-								<label class="col-xs-3 control-label">Brief Date:</label>
+							</div> -->
+							
+							<!-- <div class="form-group col-xs-12 col-sm-6">
+								<label class="col-xs-3 control-label">Bill Type Abbreviation:</label>
 								<div class="col-xs-9">
-									<input value="<?php echo (!empty($briefdate))? date("d-m-Y",strtotime($briefdate)) : ""; ?>" type="text" class="form-control" id="briefDate" disabled>
+									<input value="<?php  echo (!empty($data['job_title']))? $data['job_title'] : ''; ?>" type="text" name="bill_abbreviation" class="form-control" id="bill_abbreviation">
+									<?php if (form_error('job_title')) echo form_error('job_title'); ?>
 								</div>
-							</div>
-							<div class="form-group col-xs-12 col-sm-6">
-								<label class="col-xs-3 control-label">Job Title:</label>
+                            </div> -->
+                            <div class="form-group col-xs-12 col-sm-6">
+								<label class="col-xs-3 control-label">Bill  Type Name:</label>
 								<div class="col-xs-9">
-									<input value="<?php  echo (!empty($data['job_title']))? $data['job_title'] : ''; ?>" type="text" name="job_title" class="form-control" id="jobTitle">
+									<input value="<?php  echo (!empty($data['job_title']))? $data['job_title'] : ''; ?>" type="text" name="bill_type" class="form-control" id="bill_type">
 									<?php if (form_error('job_title')) echo form_error('job_title'); ?>
 								</div>
 							</div>
-							<div class="form-group col-xs-12 col-sm-6">
+							<!-- <div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Job Date:</label>
 								<div class="col-xs-9">
 									<div class="input-group date" id="jobDate">
@@ -89,7 +91,7 @@
 									</div>
 									<?php if (form_error('job_date')) echo form_error('job_date'); ?>
 								</div>
-							</div>
+							</div> -->
 							<?php if(!empty($data['job_id'])){?>
 								<div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Status:</label>
@@ -105,7 +107,7 @@
 								</div>
 							</div>
 							<?php }?>
-							<div class="form-group col-xs-12 col-sm-6">
+							<!-- <div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Bill Type:</label>
 								<div class="col-xs-9">
 									<select name="bill_type" class="form-control select2" id="billType" style="width: 100%;" tabindex="-1" aria-hidden="true">
@@ -128,15 +130,15 @@
 									</select>
 									<?php if (form_error('bill_type')) echo form_error('bill_type'); ?>
 								</div>
-							</div>
-							<div class="form-group col-xs-12 col-sm-6">
+							</div> -->
+							<!-- <div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Subactivity:</label>
 								<div class="col-xs-9">
 									<select name="subactivity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" id="subactivity">
 										<option><?php echo(!empty($data['job_id'])?$data['subactivity']:'') ?></option>
 									</select>
 								</div>
-							</div>
+							</div> -->
 							<?php if(!empty($data['job_id'])){?>
 							<div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Stages:</label>
@@ -178,7 +180,7 @@
 								<div class="col-xs-12">
 									
 								<!-- <textarea name="summernoteInput"  id="textarea" class="summernote"></textarea> -->
-									<textarea id="briefText" value="" name="editor" class="editor" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php  echo (!empty($data['job_text']))? $data['job_text'] : ''; ?></textarea>
+									<!-- <textarea id="briefText" value="" name="editor" class="editor" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php  echo (!empty($data['job_text']))? $data['job_text'] : ''; ?></textarea> -->
 									<?php if (form_error('job_text')) echo form_error('job_text'); ?>
 								</div>
 							</div>

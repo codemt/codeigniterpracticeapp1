@@ -176,9 +176,8 @@
 							<?php }?>						
 							<div class="form-group  col-xs-12">
 								<div class="col-xs-12">
-									
-								<!-- <textarea name="summernoteInput"  id="textarea" class="summernote"></textarea> -->
-									<textarea id="briefText" value="" name="editor" class="editor" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php  echo (!empty($data['job_text']))? $data['job_text'] : ''; ?></textarea>
+										<textarea name="job_text"  id="textarea" class="summernote"><?php  echo (!empty($data['job_text']))? $data['job_text'] : ''; ?></textarea>
+									<!-- <textarea value="" name="job_text" class="editor" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php  echo (!empty($data['job_text']))? $data['job_text'] : ''; ?></textarea> -->
 									<?php if (form_error('job_text')) echo form_error('job_text'); ?>
 								</div>
 							</div>
@@ -262,14 +261,11 @@
 </div>
 		
 		
-
 <script>
 
-
-
-	//  $(document).ready(function() {
-	// 	CKEDITOR.replace( 'editor' );
-    //     });
+	 $(document).ready(function() {
+            $('.summernote').summernote();
+        });
 
 
 $('#sel_brand').on('change',function(){
@@ -281,17 +277,14 @@ $('#sel_brand').on('change',function(){
        data: {clientID: clientID, brandname: brandname},
        dataType: 'json',
        success: function($response){
-
-		   console.log($response);
 	       	if($response['success']=='1')
 			{	
 				$(".show_msg").empty();
 				$("#briefTable").DataTable().clear().draw().destroy(); //clear all the content from tbody here.
-				var res = JSON.parse($response['data']);
+				var res = JSON.parse($response['data'])
 
 				console.log($response['data']);
 				console.log($response['data']['Brief_Text']);
-				
 				$.each(res,function(i,$item){
 					$('#briefTable tbody').append('<tr><td>'+i+'</td><td>'+ $item.briefnum +'</td><td>'+$item.Brief_Date+'</td><td>'+$item.Brief_Status+'</td><td>'+'<button type="button" class="briefSelect btn btn-default" data-brief-no="'+$item.briefnum+'" data-brief-date="'+$item.Brief_Date+'" data-brief-id="'+$item.Brief_ID+'" data-brief-text="'+$item.Brief_Text+'">Select</button>'+'</td></tr>');
 
@@ -304,19 +297,11 @@ $('#sel_brand').on('change',function(){
 			}
 		    $('.briefSelect').on('click', function(){
 			$('#modal-default').modal('hide')
-
-			console.log($(this).data('brief-text'));
 			$('#briefNumber').val($(this).data('brief-no'))
 			$('#briefDate').val($(this).data('brief-date'))
 			$('#briefid').val($(this).data('brief-id'))
-			//$('#briefText').val($(this).data('brief-text'))
-				//editor.setData( '<p>This is editor!</p>' );
-				ClassicEditor.editor.setData( '<p>Some text.</p>' );
-			//ClassicEditor.instances['#briefText'].setData('HELLO');
-		//	document.getElementById('#briefText').value = $(this).data('brief-text');
-		//	$('#textarea').summernote('code',$(this).data('brief-text'));
-                    
-                                                        
+			$('#briefText').val($(this).data('brief-text'))
+			$('#textarea').summernote('code',$(this).data('brief-text'));
 
 		})	
 		 $('#briefTable').DataTable({

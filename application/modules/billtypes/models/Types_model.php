@@ -93,4 +93,57 @@ function getLastRow($table,$column)
 
 	 }
 
+	 function saveTypesData($data){
+
+
+			$types_data = $data;
+
+
+			if($this->db->insert('billtypes',$data) === TRUE){
+				
+				
+			
+					return "Success";
+
+			}
+			
+
+		//	return $types_data;
+
+
+
+	 }
+	 function getAbbreviations(){
+
+
+		$query = $this->db->select('*')
+				->from('bill_abbreviation')
+				->get();
+
+			return $query->result_array();
+
+
+	 }
+
+	 function saveActivityData($data){
+
+
+
+			//$bill_type_id = $data['bill_type'];
+
+			//$activity_name = $data['activity_name'];
+
+			unset($data['abbreviation_name']);
+
+			$query= $this->db->insert('sub_activities',$data);
+
+
+			return "Success";
+
+
+
+
+
+	 }
+
 }

@@ -40,7 +40,15 @@ class Job_model extends CI_Model {
   function save($data,$jobID=NULL)
  {		
 
+		//print_r($data);
+
+
+		print_r($data);
+		 unset($data['files']);
+		
+		
  		if(empty($jobID)){
+			
  			return $this->db->insert('job',$data);
  		}
  		else
