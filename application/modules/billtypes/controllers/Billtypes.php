@@ -396,6 +396,188 @@ class BillTypes extends MX_Controller {
 
 }
 
+public function getAWTypes(){
+
+
+$bill_types = 	$this->types_model->getAWTypes();
+
+
+	echo json_encode($bill_types);
+	//echo json_encode($bill_types);
+
+
+  }
+
+  public function getCFTypes(){
+
+
+	$bill_types = 	$this->types_model->getCFTypes();
+	
+	
+		echo json_encode($bill_types);
+		//echo json_encode($bill_types);
+	
+	
+	  }
+	  public function getRFTypes(){
+
+
+		$bill_types = 	$this->types_model->getRFTypes();
+		
+		
+			echo json_encode($bill_types);
+			//echo json_encode($bill_types);
+		
+		
+		  }
+
+		  public function getIMTypes(){
+
+
+			$bill_types = 	$this->types_model->getIMTypes();
+			
+			
+				echo json_encode($bill_types);
+				//echo json_encode($bill_types);
+			
+			
+		}
+
+		public function getCRTypes(){
+
+
+			$bill_types = 	$this->types_model->getCRTypes();
+			
+			
+				echo json_encode($bill_types);
+				//echo json_encode($bill_types);
+			
+			
+			  }
+
+			  public function getFITypes(){
+
+
+				$bill_types = 	$this->types_model->getCRTypes();
+				
+				
+					echo json_encode($bill_types);
+					//echo json_encode($bill_types);
+				
+				
+				  }
+
+				  public function getDFTypes(){
+
+
+					$bill_types = 	$this->types_model->getDFTypes();
+					
+					
+						echo json_encode($bill_types);
+						//echo json_encode($bill_types);
+					
+					
+					  }
+
+					  public function getITTypes(){
+
+
+						$bill_types = 	$this->types_model->getITTypes();
+						
+						
+							echo json_encode($bill_types);
+							//echo json_encode($bill_types);
+						
+						
+						  }
+
+						  public function getWDTypes(){
+
+
+							$bill_types = 	$this->types_model->getWDTypes();
+							
+							
+								echo json_encode($bill_types);
+								//echo json_encode($bill_types);
+							
+							
+							  }
+
+							  public function getAVTypes(){
+
+
+								$bill_types = 	$this->types_model->getAVTypes();
+								
+								
+									echo json_encode($bill_types);
+									//echo json_encode($bill_types);
+								
+								
+								  }
+								  
+								  public function getPNTypes(){
+
+
+									$bill_types = 	$this->types_model->getPNTypes();
+									
+									
+										echo json_encode($bill_types);
+										//echo json_encode($bill_types);
+									
+									
+									  }
+
+									   
+								  public function getFBTypes(){
+
+
+									$bill_types = 	$this->types_model->getFBTypes();
+									
+									
+										echo json_encode($bill_types);
+										//echo json_encode($bill_types);
+									
+									
+									  }
+
+									  public function getEVTypes(){
+
+
+										$bill_types = 	$this->types_model->getEVTypes();
+										
+										
+											echo json_encode($bill_types);
+											//echo json_encode($bill_types);
+										
+										
+										  }
+
+										  public function getPHTypes(){
+
+
+											$bill_types = 	$this->types_model->getPHTypes();
+											
+											
+												echo json_encode($bill_types);
+												//echo json_encode($bill_types);
+											
+											
+											  }
+
+											  public function getDNTypes(){
+
+
+												$bill_types = 	$this->types_model->getDNTypes();
+												
+												
+													echo json_encode($bill_types);
+													//echo json_encode($bill_types);
+												
+												
+												  }
+
+			  
+
  
 
 

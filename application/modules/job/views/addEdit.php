@@ -133,7 +133,7 @@
 								<label class="col-xs-3 control-label">Subactivity:</label>
 								<div class="col-xs-9">
 									<select name="subactivity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" id="subactivity">
-										<option><?php echo(!empty($data['job_id'])?$data['subactivity']:'') ?></option>
+										<!--  -->
 									</select>
 								</div>
 							</div>
@@ -414,72 +414,630 @@ $(function () {
 		switch (billType) { 
 			case 'AW': 
 
-					
-				$("#subactivity").html("<option>Concept & Design</option> <option>Adaptation</option> <option>Illustration</option> <option>Image Touch-up</option> <option>Language Translation</option>")
+
+					$.ajax({
+									url:'<?php echo base_url();?>billtypes/getAWTypes',
+									method: 'get',
+									// data: {clientID: clientID, },
+									// dataType: 'json',
+									success: function(response){
+
+										console.log(response);
+
+										var data = JSON.parse(response);
+										//console.log(JSON.stringify(response));
+										// Remove options
+										//$('#sel_brand').find('option').not(':first').remove();
+
+										// Add options
+										$.each(data, function (i, item) {
+
+											$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+										
+											
+												});
+									},
+									error:function(data)
+									{
+										alert(JSON.stringify(data));
+									}
+
+
+					});
+							
+			 //$("#subactivity").html("<option>Concept & Design</option> <option>Adaptation</option> <option>Illustration</option> <option>Image Touch-up</option> <option>Language Translation</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break
 			case 'CF': 
-				$("#subactivity").html("<option>Finished Job</option>")
+
+			$.ajax({
+
+									url:'<?php echo base_url();?>billtypes/getCFTypes',
+									method: 'get',
+									// data: {clientID: clientID, },
+									// dataType: 'json',
+									success: function(response){
+
+										console.log(response);
+
+										var data = JSON.parse(response);
+										//console.log(JSON.stringify(response));
+										// Remove options
+										//$('#sel_brand').find('option').not(':first').remove();
+
+										// Add options
+										$('#subactivity').empty();
+										$.each(data, function (i, item) {
+
+										
+
+											$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+										
+											
+												});
+									},
+									error:function(data)
+									{
+										alert(JSON.stringify(data));
+									}
+
+
+
+					});
+
+				//$("#subactivity").html("<option>Finished Job</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break
 			case 'RF': 
-				$("#subactivity").html("<option>Project Fee</option>")
+
+
+			$.ajax({
+
+									url:'<?php echo base_url();?>billtypes/getRFTypes',
+									method: 'get',
+									// data: {clientID: clientID, },
+									// dataType: 'json',
+									success: function(response){
+
+										console.log(response);
+
+										var data = JSON.parse(response);
+										//console.log(JSON.stringify(response));
+										// Remove options
+										//$('#sel_brand').find('option').not(':first').remove();
+
+										// Add options
+										$('#subactivity').empty();	
+										$.each(data, function (i, item) {
+
+
+											
+											$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+										
+											
+												});
+									},
+									error:function(data)
+									{
+										alert(JSON.stringify(data));
+									}
+
+
+
+					});
+
+				//$("#subactivity").html("<option>Project Fee</option>")
 				break
 			case 'DF': 
-				$("#subactivity").html("<option>Digital Retainer Fee</option>")
+
+
+					$.ajax({
+
+							url:'<?php echo base_url();?>billtypes/getDFTypes',
+							method: 'get',
+							// data: {clientID: clientID, },
+							// dataType: 'json',
+							success: function(response){
+
+								console.log(response);
+
+								var data = JSON.parse(response);
+								//console.log(JSON.stringify(response));
+								// Remove options
+								//$('#sel_brand').find('option').not(':first').remove();
+
+								// Add options
+								$('#subactivity').empty();	
+								$.each(data, function (i, item) {
+
+
+									
+									$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+								
+									
+										});
+							},
+							error:function(data)
+							{
+								alert(JSON.stringify(data));
+							}
+
+
+
+					});	
+
+
+
+				//$("#subactivity").html("<option>Digital Retainer Fee</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break	
 			case 'IT': 
+
+				$.ajax({
+
+							url:'<?php echo base_url();?>billtypes/getITTypes',
+							method: 'get',
+							// data: {clientID: clientID, },
+							// dataType: 'json',
+							success: function(response){
+
+								console.log(response);
+
+								var data = JSON.parse(response);
+								//console.log(JSON.stringify(response));
+								// Remove options
+								//$('#sel_brand').find('option').not(':first').remove();
+
+								// Add options
+								$('#subactivity').empty();	
+								$.each(data, function (i, item) {
+
+
+									
+									$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+								
+									
+										});
+							},
+							error:function(data)
+							{
+								alert(JSON.stringify(data));
+							}
+
+
+
+				});	
+
+
+
+
 				$("#subactivity").html("<option>Digital Media</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break	
 			case 'WD': 
+
+
+					$.ajax({
+
+								url:'<?php echo base_url();?>billtypes/getWDTypes',
+								method: 'get',
+								// data: {clientID: clientID, },
+								// dataType: 'json',
+								success: function(response){
+
+									console.log(response);
+
+									var data = JSON.parse(response);
+									//console.log(JSON.stringify(response));
+									// Remove options
+									//$('#sel_brand').find('option').not(':first').remove();
+
+									// Add options
+									$('#subactivity').empty();	
+									$.each(data, function (i, item) {
+
+
+										
+										$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+									
+										
+											});
+								},
+								error:function(data)
+								{
+									alert(JSON.stringify(data));
+								}
+
+
+
+					});	
+
 				$("#subactivity").html("<option>Lead Generation</option> <option>E-commerce Management</option> <option>3-d</option> <option>Animation</option> <option>Virtual Reality</option> <option>Influencer</option> <option>Website</option> <option>Seo</option> <option>Sem</option> <option>Smm</option> <option>Orm</option> <option>Smo</option> <option>Maintenance</option> <option>Html</option> <option>Dtp & Mobile</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break	
 			case 'AV': 
-				$("#subactivity").html("<option>Tvc</option> <option>Film Production</option> <option>Radio Spot</option> <option>Beta Transfer</option>")
+
+
+			$.ajax({
+
+						url:'<?php echo base_url();?>billtypes/getAVTypes',
+						method: 'get',
+						// data: {clientID: clientID, },
+						// dataType: 'json',
+						success: function(response){
+
+							console.log(response);
+
+							var data = JSON.parse(response);
+							//console.log(JSON.stringify(response));
+							// Remove options
+							//$('#sel_brand').find('option').not(':first').remove();
+
+							// Add options
+							$('#subactivity').empty();	
+							$.each(data, function (i, item) {
+
+
+								
+								$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+							
+								
+									});
+						},
+						error:function(data)
+						{
+							alert(JSON.stringify(data));
+						}
+
+
+
+			});	
+
+			//	$("#subactivity").html("<option>Tvc</option> <option>Film Production</option> <option>Radio Spot</option> <option>Beta Transfer</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break	
 			case 'FB': 
-				$("#subactivity").html("<option>Fabrication</option>")
+
+			$.ajax({
+
+						url:'<?php echo base_url();?>billtypes/getFBTypes',
+						method: 'get',
+						// data: {clientID: clientID, },
+						// dataType: 'json',
+						success: function(response){
+
+							console.log(response);
+
+							var data = JSON.parse(response);
+							//console.log(JSON.stringify(response));
+							// Remove options
+							//$('#sel_brand').find('option').not(':first').remove();
+
+							// Add options
+							$('#subactivity').empty();	
+							$.each(data, function (i, item) {
+
+
+
+								
+								$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+							
+								
+									});
+						},
+						error:function(data)
+						{
+							alert(JSON.stringify(data));
+						}
+
+
+
+			});	
+
+
+
+				//$("#subactivity").html("<option>Fabrication</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break	
 			case 'EV': 
-				$("#subactivity").html("<option>Events</option> <option>Exhibition</option>")
+			$.ajax({
+
+							url:'<?php echo base_url();?>billtypes/getEVTypes',
+							method: 'get',
+							// data: {clientID: clientID, },
+							// dataType: 'json',
+							success: function(response){
+
+								console.log(response);
+
+								var data = JSON.parse(response);
+								//console.log(JSON.stringify(response));
+								// Remove options
+								//$('#sel_brand').find('option').not(':first').remove();
+
+								// Add options
+								$('#subactivity').empty();	
+								$.each(data, function (i, item) {
+
+
+
+									
+									$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+								
+									
+										});
+							},
+							error:function(data)
+							{
+								alert(JSON.stringify(data));
+							}
+
+
+
+			});	
+
+
+
+				//$("#subactivity").html("<option>Events</option> <option>Exhibition</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break	
 			case 'IM': 
-				$("#subactivity").html("<option>Image Purchase</option>")
+
+			$.ajax({
+
+						url:'<?php echo base_url();?>billtypes/getIMTypes',
+						method: 'get',
+						// data: {clientID: clientID, },
+						// dataType: 'json',
+						success: function(response){
+
+							console.log(response);
+
+							var data = JSON.parse(response);
+							//console.log(JSON.stringify(response));
+							// Remove options
+							//$('#sel_brand').find('option').not(':first').remove();
+
+							// Add options
+							$('#subactivity').empty();	
+							$.each(data, function (i, item) {
+
+
+
+							
+								$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+							
+								
+									});
+						},
+						error:function(data)
+						{
+							alert(JSON.stringify(data));
+						}
+
+
+
+			});
+
+
+
+				//$("#subactivity").html("<option>Image Purchase</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break	
+
+				
 			case 'DN': 
-				$("#subactivity").html("<option>Recovery Of Expenses</option>")
+			$.ajax({
+
+							url:'<?php echo base_url();?>billtypes/getDNTypes',
+							method: 'get',
+							// data: {clientID: clientID, },
+							// dataType: 'json',
+							success: function(response){
+
+								console.log(response);
+
+								var data = JSON.parse(response);
+								//console.log(JSON.stringify(response));
+								// Remove options
+								//$('#sel_brand').find('option').not(':first').remove();
+
+								// Add options
+								$('#subactivity').empty();	
+								$.each(data, function (i, item) {
+
+
+
+									
+									$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+								
+									
+										});
+							},
+							error:function(data)
+							{
+								alert(JSON.stringify(data));
+							}
+
+
+
+				});	
+			//	$("#subactivity").html("<option>Recovery Of Expenses</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break
 			case 'FI': 
-				$("#subactivity").html("<option>Finished Job</option>")
+
+			$.ajax({
+
+							url:'<?php echo base_url();?>billtypes/getFITypes',
+							method: 'get',
+							// data: {clientID: clientID, },
+							// dataType: 'json',
+							success: function(response){
+
+								console.log(response);
+
+								var data = JSON.parse(response);
+								//console.log(JSON.stringify(response));
+								// Remove options
+								//$('#sel_brand').find('option').not(':first').remove();
+
+								// Add options
+								$('#subactivity').empty();	
+								$.each(data, function (i, item) {
+
+
+
+									
+									$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+								
+									
+										});
+							},
+							error:function(data)
+							{
+								alert(JSON.stringify(data));
+							}
+
+
+
+			});	
+
+
+
+				//$("#subactivity").html("<option>Finished Job</option>")
 				break
 			case 'CR': 
+
+			$.ajax({
+
+							url:'<?php echo base_url();?>billtypes/getCRTypes',
+							method: 'get',
+							// data: {clientID: clientID, },
+							// dataType: 'json',
+							success: function(response){
+
+								console.log(response);
+
+								var data = JSON.parse(response);
+								//console.log(JSON.stringify(response));
+								// Remove options
+								//$('#sel_brand').find('option').not(':first').remove();
+
+								// Add options
+								$('#subactivity').empty();	
+								$.each(data, function (i, item) {
+
+
+									
+									$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+								
+									
+										});
+							},
+							error:function(data)
+							{
+								alert(JSON.stringify(data));
+							}
+
+
+
+			});	
+
+
+
 				$("#subactivity").html("<option>Creative Layout</option>")
 				break	
 			case 'PN': 
-				$("#subactivity").html("<option>Printing</option>")
+			$.ajax({
+
+						url:'<?php echo base_url();?>billtypes/getPNTypes',
+						method: 'get',
+						// data: {clientID: clientID, },
+						// dataType: 'json',
+						success: function(response){
+
+							console.log(response);
+
+							var data = JSON.parse(response);
+							//console.log(JSON.stringify(response));
+							// Remove options
+							//$('#sel_brand').find('option').not(':first').remove();
+
+							// Add options
+							$('#subactivity').empty();	
+							$.each(data, function (i, item) {
+
+
+
+								
+								$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+							
+								
+									});
+						},
+						error:function(data)
+						{
+							alert(JSON.stringify(data));
+						}
+
+
+
+			});	
+
+
+				//$("#subactivity").html("<option>Printing</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break	
 			case 'PH': 
-				$("#subactivity").html("<option>Photography</option>")
+
+			$.ajax({
+
+						url:'<?php echo base_url();?>billtypes/getTypes',
+						method: 'get',
+						// data: {clientID: clientID, },
+						// dataType: 'json',
+						success: function(response){
+
+							console.log(response);
+
+							var data = JSON.parse(response);
+							//console.log(JSON.stringify(response));
+							// Remove options
+							//$('#sel_brand').find('option').not(':first').remove();
+
+							// Add options
+							$('#subactivity').empty();	
+							$.each(data, function (i, item) {
+
+
+
+								
+								$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
+							
+								
+									});
+						},
+						error:function(data)
+						{
+							alert(JSON.stringify(data));
+						}
+
+
+
+			});	
+			//	$("#subactivity").html("<option>Photography</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")
 				break

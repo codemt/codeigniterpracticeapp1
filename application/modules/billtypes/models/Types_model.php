@@ -133,7 +133,7 @@ function getLastRow($table,$column)
 
 			//$activity_name = $data['activity_name'];
 
-			unset($data['abbreviation_name']);
+			//unset($data['abbreviation_name']);
 
 			$query= $this->db->insert('sub_activities',$data);
 
@@ -194,4 +194,214 @@ function getLastRow($table,$column)
 
 
  }
+
+ function getAWTypes(){
+
+
+	$query_name='AW';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();	
+
+	// $query = $this->db->select('*')
+	// 		->from('sub_activities')
+	// 		->join('bill_abbreviation','bill_abbreviation.bill_id = sub_activities.bill_type_id')
+	// 		->get();
+
+		return $query->result_array();
+
+
+ }
+ function getCFTypes(){
+
+
+	$query_name='CF';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+
+		return $query->result_array();
+
+
+ }
+
+ public function getRFTypes(){
+
+
+	$query_name='RF';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+
+		return $query->result_array();
+	
+	
+	  }
+
+	  public function getIMTypes(){
+
+
+		$query_name='IM';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+
+		return $query->result_array();
+		
+		
+	}
+
+	public function getCRTypes(){
+
+
+
+		$query_name='CR';
+		$query = $this->db->select('*')
+				->from('sub_activities')
+				->where('abbreviation_name',$query_name)
+				->get();
+
+		return $query->result_array();
+		
+		
+		  }
+
+		  public function getFITypes(){
+
+
+			$query_name='FI';
+			$query = $this->db->select('*')
+					->from('sub_activities')
+					->where('abbreviation_name',$query_name)
+					->get();
+
+		return $query->result_array();
+			
+			
+			  }
+
+			  public function getDFTypes(){
+
+
+				$query_name='DF';
+			$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+
+		return $query->result_array();
+				
+				
+				  }
+
+				  public function getITTypes(){
+
+
+					$query_name='IT';
+					$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+		return $query->result_array();
+					
+					
+					  }
+
+					  public function getWDTypes(){
+
+
+						$query_name='WD';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+		return $query->result_array();
+						
+						  }
+
+						  public function getAVTypes(){
+
+
+							$query_name='AV';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+
+		return $query->result_array();
+							
+							  }
+							  
+							  public function getPNTypes(){
+
+
+								$query_name='PN';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+		return $query->result_array();
+								
+								  }
+
+								   
+							  public function getFBTypes(){
+
+
+								$query_name='FB';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+
+		return $query->result_array();
+								
+								  }
+
+								  public function getEVTypes(){
+
+
+									$query_name='EV';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+		return $query->result_array();
+									
+									
+									  }
+
+									  public function getPHTypes(){
+
+
+										$query_name='PH';
+										$query = $this->db->select('*')
+												->from('sub_activities')
+												->where('abbreviation_name',$query_name)
+												->get();
+
+		return $query->result_array();
+										
+										
+										  }
+
+										  public function getDNTypes(){
+
+
+											$query_name='DN';
+	$query = $this->db->select('*')
+			->from('sub_activities')
+			->where('abbreviation_name',$query_name)
+			->get();
+								
+										return $query->result_array();
+											
+											
+											  }
+
+
 }
