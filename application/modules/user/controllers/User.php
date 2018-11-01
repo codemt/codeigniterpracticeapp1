@@ -121,8 +121,15 @@ class User extends MX_Controller {
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		
 		$user_data =  $this->input->post();
-		print_r($user_data);
-		exit();
+		//print_r($user_data);
+		//exit();
+
+
+
+		
+		
+
+	
 		
 		if(empty($this->input->post('id'))){
 			$this->form_validation->set_rules('username', 'Username', 'trim|required|valid_email|is_unique[users.username]');
@@ -140,6 +147,69 @@ class User extends MX_Controller {
 		}
 		unset($user_data['clients']);
 		$email = $user_data['username'];	
+
+		//print_r($all_client_data);
+	//	print_r($this->input->post('clients'));
+
+		foreach($this->input->post('clients') as $client_names)
+		{
+
+			if( $client_names == "All"){
+
+
+				echo "Yes";
+			
+				$query = $this->db->select('client_id')->get('client');
+
+				$all_client_data = json_encode($query->result(), true);
+
+				$all_client_data = json_decode($all_client_data,true);
+
+				$all_clients = array();
+
+				foreach($all_client_data as $value){
+
+						array_push($all_clients,$value['client_id']);
+
+				}
+					
+				print_r($all_clients);
+				print_r($this->input->post('clients'));
+				$this->user_model->save($user_data,$this->input->post('id'),$all_clients);
+
+				// redirect clients
+				$login_link = base_url();
+
+			if(empty($this->input->post('id')))
+			{
+					$message = "<h2>Welcome to MX Software</h2> <br/>";
+					$message .= "<p>Login Link: $login_link</p><br/>";
+					$message .= "<p>Username: $email</p><br/>";
+					$message .= "<p>Password: $password</p><br/>";
+					$this->sendEmail($email, 'Welcome to MX Software', $message);
+					$this->session->set_flashdata('message', 'User created successfully');
+			} 
+			else
+			 {
+						if($this->input->post('resetPassword') == "on"){
+							$message = "<h2>New Password for MX software </h2> <br/>";
+							$message .= "<p>Login Link: $login_link</p><br/>";
+							$message .= "<p>Username: $email</p><br/>";
+							$message .= "<p>Password: $password</p><br/>";
+							$this->sendEmail($email, 'New Password for MX Software', $message);
+						}
+						$this->session->set_flashdata('message', 'User updated successfully');
+			}
+
+			redirect('user');
+				//exit();
+			}
+
+
+		}
+
+			//exit();
+
 		if ($this->form_validation->run() === TRUE  && $this->user_model->save($user_data,$this->input->post('id'),$this->input->post('clients')))
 		{
 			$login_link = base_url();

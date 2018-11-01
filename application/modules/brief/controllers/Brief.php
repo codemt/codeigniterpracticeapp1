@@ -79,17 +79,37 @@ class Brief extends MX_Controller {
 
 
   public function savedata(){
+
+    // print_r(!$this->login_model->canAccess('bri'));
+    // exit();
     if (!$this->login_model->logged_in())
     {
       redirect('');
     }
-    if(!$this->login_model->canAccess('brief_add') || !$this->login_model->canAccess('brief_edit') ){
-        redirect('');
-      }
+    // if(!$this->login_model->canAccess('brief_add') || !$this->login_model->canAccess('brief_edit') ){
+    //     redirect('');
+    //   }
     if(empty($this->input->post('Brief_ID'))) {
-      $this->form_validation->set_rules('Client_ID', 'Client Name', 'required');
-      $this->form_validation->set_rules('Brand_Name', 'Brand Name', 'required');
+
+              if(!$this->login_model->canAccess('brief_add') ){
+                redirect('');
+              }
+
+              $this->form_validation->set_rules('Client_ID', 'Client Name', 'required');
+              $this->form_validation->set_rules('Brand_Name', 'Brand Name', 'required');
+    } 
+    else 
+    {
+      
+              if(!$this->login_model->canAccess('brief_edit') ){
+                redirect('');
+              }
+
+
+
     }
+
+
     $this->form_validation->set_rules('Brief_Status', 'Brief Status', 'required');
     $this->form_validation->set_rules('Brief_Text', 'Brief Text', 'required');
     $this->form_validation->set_error_delimiters('<p class="error">', '</p>');

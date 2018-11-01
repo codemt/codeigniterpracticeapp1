@@ -54,9 +54,11 @@
 								<label class="col-xs-3 col-sm-1 control-label">Client:</label>
 								<div class="col-xs-9 col-sm-11">
 									<select class="form-control select2" name="clients[]" id="clients" multiple style="width: 100%;">
+										<option value="All">All</option>
 										<?php foreach ($clients as $item){ ?>
 										<option value="<?php echo $item->client_id; ?>" <?php echo (!empty($data['clients']) && in_array($item->client_id, $data['clients']))? "selected":"";?>><?php echo $item->name; ?></option>
 										<?php } ?>
+										
 									
 									</select>
 									<?php if (form_error('clients[]')) echo form_error('clients[]'); ?>

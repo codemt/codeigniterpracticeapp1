@@ -51,7 +51,10 @@
   <!-- CKEDITOR - text editor -->
   <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
 	<!-- AdminLTE App -->
-	<script src="<?php echo base_url()?>assets/dist/js/adminlte.min.js"></script>
+  <script src="<?php echo base_url()?>assets/dist/js/adminlte.min.js"></script>
+  <!-- include summernote css/js-->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>   
 </head>
 <body class="hold-transition skin-grey sidebar-mini">
 <div class="wrapper">
@@ -180,6 +183,26 @@
                 <?php } ?>
                 <?php if(in_array('user_list', $permissions)){ ?>
                   <li><a href="<?php echo base_url()?>user/"><i class="fa fa-list"></i> User List</a></li>
+                <?php } ?>
+              </ul>
+          <?php } ?>
+        <?php } ?>
+
+        </li>
+        <li class="treeview">
+       <?php if(!empty($permissions)) { ?>
+            <?php if(in_array('user_add', $permissions) || in_array('user_list', $permissions)){ ?>
+              <a href="#"><i class="fa fa-user-circle"></i> <span> Bill Types </span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+              </a>
+              <ul class="treeview-menu">
+                <?php if(in_array('user_add', $permissions)){ ?>
+                  <li><a href="<?php echo base_url()?>billtypes/"><i class="fa fa-plus"></i> Add Types</a></li>
+                <?php } ?>
+                <?php if(in_array('user_list', $permissions)){ ?>
+                  <li><a href="<?php echo base_url()?>user/"><i class="fa fa-list"></i> Edit Types</a></li>
                 <?php } ?>
               </ul>
           <?php } ?>

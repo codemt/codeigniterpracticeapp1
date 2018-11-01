@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Job extends MX_Controller {
+class BillTypes extends MX_Controller {
 
 	public function __construct()
 	{
@@ -9,7 +9,8 @@ class Job extends MX_Controller {
         $this->load->library(array('form_validation'));
 		$this->load->model('login/login_model');
 		$this->load->model('brief/brief_model');
-		$this->load->model('job_model');		
+		$this->load->model('billtypes/types_model');	
+		$this->load->model('job/job_model');	
 	}
 
 	public function index()
