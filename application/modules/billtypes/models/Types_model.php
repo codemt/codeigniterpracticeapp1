@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Types_model extends CI_Model {
 
-	 function getLastRow($table,$column)
+function getLastRow($table,$column)
  {
  	$query = $this->db->select($column)
  					->from($table)
@@ -79,6 +79,18 @@ class Types_model extends CI_Model {
 	    $response = $query->result_array();
 	    // print_r($response);
 		 return $query->result_array();
+	 }
+
+	 function getBillTypes(){
+
+
+		$query = $this->db->select('*')
+				->from('billtypes')
+				->get();
+
+			return $query->result_array();
+
+
 	 }
 
 }

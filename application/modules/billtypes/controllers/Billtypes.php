@@ -25,7 +25,10 @@ class BillTypes extends MX_Controller {
 		$data['permissions'] = $this->login_model->getPermissions();
 		$data['title'] = "Bill Types List";
     	$user_id = $this->login_model->get_user_id();
-		$data['jobs'] = $this->job_model->DisplayList($user_id);		
+		$data['jobs'] = $this->job_model->DisplayList($user_id);
+		
+		// print_r($data['jobs']);
+		// exit();
 		$this->load->view('template/header', $data);
 		$this->load->view('list');
 		$this->load->view('template/footer');
@@ -225,6 +228,53 @@ class BillTypes extends MX_Controller {
     $result=$this->job_model->save($data,$id);
     $this->session->set_flashdata('message', 'Job deleted Successfully');
         redirect('job');
+  }
+
+  public function getTypes(){
+
+
+		$bill_types = 	$this->types_model->getBillTypes();
+
+		
+		//print_r($bill_types);
+
+		// 	$bills = json_encode($bill_types, true);
+
+		// 		$all_billtypes_data = json_decode($bills,true);
+
+
+		//  print_r($all_billtypes_data);
+		$data['permissions'] = $this->login_model->getPermissions();
+		$data['title'] = "Bill Types List";
+    	$user_id = $this->login_model->get_user_id();
+		$data['jobs'] = $this->types_model->getBillTypes();
+		
+		// print_r($data['jobs']);
+		//  exit();
+		$this->load->view('template/header', $data);
+		$this->load->view('types_list');
+		$this->load->view('template/footer');
+
+
+
+
+  }
+
+  public function addTypes(){
+
+
+
+		$data['permissions'] = $this->login_model->getPermissions();
+		$data['title'] = "Add Bill Type ";
+    	$user_id = $this->login_model->get_user_id();
+		$data['client'] = $this->brief_model->getClient($user_id);
+		$this->load->view('template/header', $data);
+		$this->load->view('newEdit',$data);
+		$this->load->view('template/footer');
+
+
+
+
   }
 
 
