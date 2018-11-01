@@ -413,6 +413,8 @@ $(function () {
 		var billType = this.value;
 		switch (billType) { 
 			case 'AW': 
+
+					
 				$("#subactivity").html("<option>Concept & Design</option> <option>Adaptation</option> <option>Illustration</option> <option>Image Touch-up</option> <option>Language Translation</option>")
 				$('#stages').val("Artwork")
 				$('#sel_billable').val("Yes")

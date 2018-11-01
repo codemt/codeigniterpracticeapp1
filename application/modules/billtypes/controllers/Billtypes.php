@@ -247,8 +247,8 @@ class BillTypes extends MX_Controller {
 		$data['permissions'] = $this->login_model->getPermissions();
 		$data['title'] = "Bill Types List";
     	$user_id = $this->login_model->get_user_id();
-		$data['jobs'] = $this->types_model->getBillTypes();
-		
+		//$data['jobs'] = $this->types_model->getBillTypes();
+		$data['jobs'] = $this->types_model->getCodeTypes();
 		// print_r($data['jobs']);
 		//  exit();
 		$this->load->view('template/header', $data);
@@ -350,6 +350,51 @@ class BillTypes extends MX_Controller {
 	echo json_encode($abbrevation_types);
 
   }
+
+  public function deleteType($id){
+
+
+
+		echo $id;
+
+		$delete_type = $this->types_model->deleteType($id);
+
+
+		echo $delete_type;
+
+  }
+
+  public function getSubTypes(){
+
+
+	$bill_types = 	$this->types_model->getBillTypes();
+
+	
+	//print_r($bill_types);
+
+	// 	$bills = json_encode($bill_types, true);
+
+	// 		$all_billtypes_data = json_decode($bills,true);
+
+
+	//  print_r($all_billtypes_data);
+	$data['permissions'] = $this->login_model->getPermissions();
+	$data['title'] = "Bill Types List";
+	$user_id = $this->login_model->get_user_id();
+	//$data['jobs'] = $this->types_model->getBillTypes();
+	$data['jobs'] = $this->types_model->getSubTypes();
+
+	//$data['jobs'] = $this->types_model->getBillTypes();
+	// print_r($data['jobs']);
+	//  exit();
+	$this->load->view('template/header', $data);
+	$this->load->view('subactivities_list');
+	$this->load->view('template/footer');
+
+
+
+
+}
 
  
 

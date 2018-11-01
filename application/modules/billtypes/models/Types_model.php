@@ -146,4 +146,52 @@ function getLastRow($table,$column)
 
 	 }
 
+	 function deleteType($id){
+
+
+		// $this->db->where('billtypes.id=sub_activities.bill_type_id');
+		// $this->db->where('billtypes.id',$id);
+		// $this->db->delete(array('billtypes','sub_activities'));
+
+		// return "success";
+
+		$sql = "DELETE billtypes,sub_activities,bill_abbreviation
+        FROM billtypes,sub_activities,bill_abbreviation
+        WHERE billtypes.id=sub_activities.bill_type_id 
+		AND billtypes.id=bill_abbreviation.bill_id
+        ";
+
+    $this->db->query($sql, array($id));
+
+
+			 return "success";
+
+	 }
+
+
+	 public function getCodeTypes(){
+
+
+			$query = $this->db->select('*')
+			->from('bill_abbreviation')
+			->get();
+
+			return $query->result_array();
+
+
+
+	 }
+
+	 public function getSubTypes(){
+
+
+		$query = $this->db->select('*')
+		->from('sub_activities')
+		->get();
+
+		return $query->result_array();
+
+
+
+ }
 }

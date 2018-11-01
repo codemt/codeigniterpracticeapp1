@@ -202,11 +202,14 @@
                 <?php if(in_array('user_add', $permissions)){ ?>
                   <li><a href="<?php echo base_url()?>billtypes/getTypes"><i class="fa fa-list"></i> View Types</a></li>
                 <?php } ?>
+                <?php if(in_array('user_add', $permissions)){ ?>
+                  <li><a href="<?php echo base_url()?>billtypes/getSubTypes"><i class="fa fa-list"></i> View Sub Activities </a></li>
+                <?php } ?>
                 <!-- <?php if(in_array('user_list', $permissions)){ ?>
                   <li><a href="<?php echo base_url()?>billtypes/addTypes"><i class="fa fa-plus"></i> Edit Types</a></li>
                 <?php } ?> -->
                 <?php if(in_array('user_list', $permissions)){ ?>
-                  <li><a href="<?php echo base_url()?>billtypes/addActivity"><i class="fa fa-plus"></i> Add Sub Categories </a></li>
+                  <li><a href="<?php echo base_url()?>billtypes/addActivity"><i class="fa fa-plus"></i> Add Sub Activities </a></li>
                 <?php } ?>
               </ul>
           <?php } ?>

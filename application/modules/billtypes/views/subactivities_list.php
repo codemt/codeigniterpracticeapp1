@@ -1,6 +1,5 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-
 	<!-- Main content -->
 	<section class="content container-fluid">
     	<div class="row">
@@ -54,7 +53,7 @@
 									<tr>
 										<td>	<?php echo ++$i; ?></td>
 									  <!--	<td>	<?php // echo $item['bill_abbreviation']; ?></td> -->
-                                        <td>	<?php echo $item['abbreviation_name']; ?></td>
+                                        <td>	<?php echo $item['activity_name']; ?></td>
                                         <td>  	<a href="<?php echo base_url()."billtypes/deleteType/".$item['id']; ?>"><i class="fas fa-trash-alt"></i></a></td> 
 										<?php } ?>
                                            
