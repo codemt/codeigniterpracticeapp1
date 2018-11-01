@@ -23,7 +23,7 @@
 						</div>
 						<div class="box-body">
 
-								<div class="form-group col-xs-12 col-sm-6">
+								<div class="form-group col-xs-12 col-sm-6" style="display: none;">
 										<label class="col-xs-3 control-label">Bill Type  Name:</label>
 										<div class="col-xs-9">
 											<select name="bill_type_id" id="type_id" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true"> 

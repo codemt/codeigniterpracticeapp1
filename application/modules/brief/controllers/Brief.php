@@ -82,6 +82,8 @@ class Brief extends MX_Controller {
 
     // print_r(!$this->login_model->canAccess('bri'));
     // exit();
+
+
     if (!$this->login_model->logged_in())
     {
       redirect('');
@@ -136,7 +138,9 @@ class Brief extends MX_Controller {
       $this->load->view('template/footer.php');
     }
     else{
-  	    $data = $this->input->post();
+        $data = $this->input->post();
+        
+        unset($data['files']);
   	if(empty($this->input->post('Brief_ID'))){
       //Increment Brief No based on financial year
       $briefno = $this->brief_model->getLastRow('Brief','Brief_NO');

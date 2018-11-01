@@ -71,8 +71,9 @@
 								<?php if (form_error('Brief_Status')) echo form_error('Brief_Status'); ?> 
 							</div>
 							<div class="form-group  col-xs-12 col-sm-12">
-								<textarea name="Brief_Text" class="editor" placeholder="Place some text here" value="<?php  echo (!empty($data['Brief_Text']))? $data['Brief_Text'] : ''; ?>"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php  echo (!empty($data['Brief_Text']))? $data['Brief_Text'] : ''; ?></textarea>
+							<textarea name="Brief_Text"  id="textarea" class="summernote" value="<?php  echo (!empty($data['Brief_Text']))? $data['Brief_Text'] : ''; ?>"> <?php  echo (!empty($data['Brief_Text']))? $data['Brief_Text'] : ''; ?>  </textarea>
+							 <!-- 	<textarea name="Brief_Text" class="editor" placeholder="Place some text here" value="<?php  echo (!empty($data['Brief_Text']))? $data['Brief_Text'] : ''; ?>" --> 
+									<!--  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php  echo (!empty($data['Brief_Text']))? $data['Brief_Text'] : ''; ?></textarea>
                           <?php if (form_error('Brief_Text')) echo form_error('Brief_Text'); ?> 
 							</div>
 						</div>
@@ -96,6 +97,10 @@
   <!-- /.content-wrapper -->
   
 <script>
+
+	 $(document).ready(function() {
+            $('.summernote').summernote();
+        });
 	$(document).ready(function(){
 		var datetim ="<?php echo (!empty($data['Brief_Date']))? date('d-m-Y',strtotime($data['Brief_Date'])) : date('d-m-Y')?>";
 		var datetim2="<?php echo (!empty($data['Brief_Date']))? date('Y-m-d',strtotime($data['Brief_Date'])) : date('Y-m-d')?>";

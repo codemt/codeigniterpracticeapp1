@@ -332,7 +332,7 @@ class BillTypes extends MX_Controller {
 
 
 	$data = $this->input->post();
-	print_r($data);
+	//print_r($data);
 
 	$save_activity_data = $this->types_model->saveActivityData($data);
 
