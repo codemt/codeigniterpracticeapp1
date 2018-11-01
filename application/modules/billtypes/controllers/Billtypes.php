@@ -23,7 +23,7 @@ class BillTypes extends MX_Controller {
 			redirect('');
 		}
 		$data['permissions'] = $this->login_model->getPermissions();
-		$data['title'] = "Jobs";
+		$data['title'] = "Bill Types List";
     	$user_id = $this->login_model->get_user_id();
 		$data['jobs'] = $this->job_model->DisplayList($user_id);		
 		$this->load->view('template/header', $data);
@@ -53,7 +53,7 @@ class BillTypes extends MX_Controller {
     	}
     	else
     	{
-    		$data['title'] = "Add Job";
+    		$data['title'] = "Add Bill Type";
     		$data['data'] = NULL;
     	}
 

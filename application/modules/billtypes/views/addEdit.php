@@ -26,7 +26,7 @@
 								<input type="hidden" value="<?php echo $data['job_id']; ?>" name="job_id" />
 							<?php } ?>							
 							<div class="form-group col-xs-12 col-sm-6">
-								<label class="col-xs-3 control-label">Client Name:</label>
+								<label class="col-xs-3 control-label">Client  Name:</label>
 								<div class="col-xs-9">
 									<select <?php echo( !empty($data['job_id'])? 'disabled' : '');?> class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" id="sel_client" name="client_id">
 										<option disabled selected>Client Name</option>

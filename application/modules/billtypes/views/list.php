@@ -7,10 +7,10 @@
 			<div class="col-xs-12">
 				<div class="box">
 					<div class="box-header">
-						<h1 class="box-title">Job</h1>
+						<h1 class="box-title">Bill Types List</h1>
 						<div class="box-tools pull-right">
 							<?php if(in_array('job_add', $permissions)){ ?>
-								<a class="btn btn-block btn-primary" href="<?php echo base_url()?>job/addEdit">Add Job</a>
+								<a class="btn btn-block btn-primary" href="<?php echo base_url()?>job/addEdit">Add Bill Type</a>
 							<?php } ?>
 						</div>
 					</div>
@@ -26,9 +26,9 @@
 							<thead>
 								<tr>
 									<th>Sr. No.</th>
-									<th>Job No</th>
-									<th>Client</th>
-									<th>Brand</th>
+									<th>Abbrevation </th>
+									<th> Name</th>
+									<th>Subactivity</th>
 									<th>Brief Created Date</th>
 									<th>Job Title</th>
 									<th>Job Created Date</th>

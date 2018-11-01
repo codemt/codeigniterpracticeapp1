@@ -77,7 +77,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => '127.0.0.1',
 	'username' => 'root',
-	'password' => 'secretpassword',
+	'password' => 'root',
 	// 'username' => 'dorofash_nmw',
 	// 'password' => 'V0M=bl__?aCB',
 	// 'database' => 'dorofash_nmw',

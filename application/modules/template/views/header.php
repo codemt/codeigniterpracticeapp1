@@ -199,10 +199,10 @@
               </a>
               <ul class="treeview-menu">
                 <?php if(in_array('user_add', $permissions)){ ?>
-                  <li><a href="<?php echo base_url()?>billtypes/"><i class="fa fa-plus"></i> Add Types</a></li>
+                  <li><a href="<?php echo base_url()?>billtypes/"><i class="fa fa-plus"></i> View Types</a></li>
                 <?php } ?>
                 <?php if(in_array('user_list', $permissions)){ ?>
-                  <li><a href="<?php echo base_url()?>user/"><i class="fa fa-list"></i> Edit Types</a></li>
+                  <li><a href="<?php echo base_url()?>billtypes/addEdit"><i class="fa fa-list"></i> Edit Types</a></li>
                 <?php } ?>
               </ul>
           <?php } ?>
