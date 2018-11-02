@@ -55,7 +55,39 @@
 										<td>	<?php echo ++$i; ?></td>
 									  <!--	<td>	<?php // echo $item['bill_abbreviation']; ?></td> -->
 										<td>	<?php echo $item['bill_type']; ?></td>
-										<td>  	<a href="<?php echo base_url()."billtypes/deleteType/".$item['id']; ?>"><i class="fas fa-trash-alt"></i></a></td> 
+										<td>  	
+											
+														<i class="fas fa-trash-alt"  data-toggle="modal" data-target="#myModal"></i>
+												
+														<!-- Modal -->
+															<div class="modal fade" id="myModal" role="dialog">
+																<div class="modal-dialog">
+																
+																<!-- Modal content-->
+																<div class="modal-content">
+																	<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal">&times;</button>
+																	<h4 class="modal-title">Delete Sub Activity </h4>
+																	</div>
+																	<div class="modal-body">
+																	<p>Are you Sure you want to Delete?</p>
+																	</div>
+																	<div class="modal-footer">
+																			<a  class="btn btn-default" href="<?php echo base_url()."billtypes/deleteType/".$item['id']; ?>"> Yes </a> 
+																			<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+																	</div>
+																</div>
+																
+																</div>
+															</div>
+															
+													</td>
+								
+									
+									
+									
+									
+										
                                        
 										<?php } ?>
                                            
