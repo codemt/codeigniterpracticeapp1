@@ -126,7 +126,7 @@
 
 		$.ajax({
 
-					url:'<?php echo base_url();?>billtypes/getSubTypesJSON',
+					url:'<?php echo base_url();?>billtypes/getTypesJSON',
 					method: 'get',
 					// data: {clientID: clientID, },
 					// dataType: 'json',
@@ -145,7 +145,7 @@
 
 
 							
-							$("#subactivity").append("<option value='"+item.abbreviation_name+"'>" +item.abbreviation_name+ ' - ' + item.activity_name + "</option>");
+							$("#subactivity").append("<option value='"+item.bill_type+"'>" +item.bill_type+"</option>");
 						
 							
 								});

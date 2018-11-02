@@ -423,5 +423,16 @@ function getLastRow($table,$column)
 
 }
 
+public function getTypes(){
+
+
+	$query = $this->db->select('bill_type')
+	->from('billtypes')
+	->get();
+
+	return $query->result_array();
+
+}
+
 
 }

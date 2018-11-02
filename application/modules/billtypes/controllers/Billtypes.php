@@ -408,6 +408,19 @@ class BillTypes extends MX_Controller {
 
 
 }
+public function getTypesJSON(){
+
+
+
+	$bill_types = 	$this->types_model->getTypes();
+
+
+	echo json_encode($bill_types);
+
+
+
+
+}
 
 public function getSubTypesJSON(){
 
