@@ -27,7 +27,7 @@
 									<th>Sr. No.</th>
 									<!-- <th>Abbrevation </th> -->
 									<th> Name</th>
-									<th> abbreviation_name </th>
+									<th> Abbreviation Name  </th>
 									<!-- <th>Subactivity</th>
 									<th>Brief Created Date</th>
 									<th>Job Title</th>

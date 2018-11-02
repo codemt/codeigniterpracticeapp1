@@ -220,7 +220,7 @@
 					<div class="box">
 						<div class="box-footer text-center">
 							<button type="submit" class="btn btn-primary">Submit</button>
-							<a class="btn btn-default" type="cancel" href="<?php echo base_url()?>billtypes/getSubTypes">Cancel</a>
+							<a class="btn btn-default" type="cancel" href="<?php echo base_url()?>billtypes/getTypes">Cancel</a>
 						</div>
 					</div>
 				</form>
