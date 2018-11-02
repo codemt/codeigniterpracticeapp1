@@ -27,6 +27,7 @@
 									<th>Sr. No.</th>
 									<!-- <th>Abbrevation </th> -->
 									<th> Name</th>
+									<th> abbreviation_name </th>
 									<!-- <th>Subactivity</th>
 									<th>Brief Created Date</th>
 									<th>Job Title</th>
@@ -41,7 +42,7 @@
 									<?php } ?>
 							  		
 							  		<?php if(in_array('job_edit', $permissions)){ ?>
-									<th>Actions</th>
+									<!-- <th>Actions</th> -->
 									<?php } ?>
 								</tr>
 							</thead>
@@ -53,8 +54,9 @@
 									<tr>
 										<td>	<?php echo ++$i; ?></td>
 									  <!--	<td>	<?php // echo $item['bill_abbreviation']; ?></td> -->
-                                        <td>	<?php echo $item['activity_name']; ?></td>
-                                        <td>  	<a href="<?php echo base_url()."billtypes/deleteType/".$item['id']; ?>"><i class="fas fa-trash-alt"></i></a></td> 
+										<td>	<?php echo $item['activity_name']; ?></td>
+										<td> <?php  echo $item['abbreviation_name']; ?></td>
+                                      
 										<?php } ?>
                                            
 								    </tr>
