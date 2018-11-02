@@ -347,7 +347,7 @@ class BillTypes extends MX_Controller {
 	// echo $bill_name[0]['bill_type'];
 	$save_activity_data = $this->types_model->saveActivityData($data);
 
-
+	$this->session->set_flashdata('message', 'Sub Activity Added Successfully');
 	redirect('billtypes/getSubTypes');
 	//echo $save_activity_data;
 
@@ -368,12 +368,25 @@ class BillTypes extends MX_Controller {
 
 
 
-		echo $id;
+		//echo $id;
 
 		$delete_type = $this->types_model->deleteType($id);
 
+		$this->session->set_flashdata('message', 'Bill Type Deleted Successfully');
+		redirect('billtypes/getTypes');
 
-		echo $delete_type;
+	
+  }
+
+  public function deleteActivity($id){
+
+
+
+		$delete_type = $this->types_model->deleteActivity($id);
+
+		$this->session->set_flashdata('message','Sub Activity Deleted Successfully');
+		redirect('billtypes/getSubTypes');
+
 
   }
 

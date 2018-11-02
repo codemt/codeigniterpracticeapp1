@@ -42,7 +42,7 @@
 									<?php } ?>
 							  		
 							  		<?php if(in_array('job_edit', $permissions)){ ?>
-									<!-- <th>Actions</th> -->
+									<th>Actions</th>
 									<?php } ?>
 								</tr>
 							</thead>
@@ -54,7 +54,8 @@
 									<tr>
 										<td>	<?php echo ++$i; ?></td>
 									  <!--	<td>	<?php // echo $item['bill_abbreviation']; ?></td> -->
-                                        <td>	<?php echo $item['bill_type']; ?></td>
+										<td>	<?php echo $item['bill_type']; ?></td>
+										<td>  	<a href="<?php echo base_url()."billtypes/deleteType/".$item['id']; ?>"><i class="fas fa-trash-alt"></i></a></td> 
                                        
 										<?php } ?>
                                            
