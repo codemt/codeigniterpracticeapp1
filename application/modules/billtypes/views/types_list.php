@@ -54,7 +54,7 @@
 									<tr>
 										<td>	<?php echo ++$i; ?></td>
 									  <!--	<td>	<?php // echo $item['bill_abbreviation']; ?></td> -->
-                                        <td>	<?php echo $item['abbreviation_name']; ?></td>
+                                        <td>	<?php echo $item['bill_type']; ?></td>
                                        
 										<?php } ?>
                                            

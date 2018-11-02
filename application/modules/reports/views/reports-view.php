@@ -40,23 +40,9 @@
 							<div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Bill Type:</label>
 								<div class="col-xs-9">
-									<select class="form-control select2" name="bill_type" style="width: 100%;" tabindex="-1" aria-hidden="true">
+									<select class="form-control select2" name="bill_type" style="width: 100%;" tabindex="-1" aria-hidden="true" id="subactivity">
 										<option disabled selected value=""></option>
-										<option value="AW">AW - Artwork</option>
-										<option value="IM">IM - Images</option>
-										<option value="RF">RF - Retainer Fee</option>
-										<option value="CF">CF - Creative Fee(Project)</option>
-										<option value="CR">CR - Creative Layout</option>
-										<option value="FI">FI - Finished Job</option>
-										<option value="DF">DF - Digital Retainer</option>
-										<option value="IT">IT - Digital Media</option>
-										<option value="WD">WD - Digital Non-media</option>
-										<option value="AV">AV - Audio Visual</option>
-										<option value="PN">PN - Printing</option>
-										<option value="FB">FB - Fabrication</option>
-										<option value="EV">EV - Events/exhibitions</option>
-										<option value="PH">PH - Photography</option>
-										<option value="DN">DN - Debit Notes</option>
+										
 									</select>
 								</div>
 							</div>
@@ -134,6 +120,50 @@
   <!-- /.content-wrapper -->
   
 <script>
+
+	$(document).ready(function (){
+
+
+		$.ajax({
+
+					url:'<?php echo base_url();?>billtypes/getSubTypesJSON',
+					method: 'get',
+					// data: {clientID: clientID, },
+					// dataType: 'json',
+					success: function(response){
+
+						console.log(response);
+
+						var data = JSON.parse(response);
+						//console.log(JSON.stringify(response));
+						// Remove options
+						//$('#sel_brand').find('option').not(':first').remove();
+
+						// Add options
+						$('#subactivity').empty();	
+						$.each(data, function (i, item) {
+
+
+							
+							$("#subactivity").append("<option value='"+item.abbreviation_name+"'>" +item.abbreviation_name+ ' - ' + item.activity_name + "</option>");
+						
+							
+								});
+					},
+					error:function(data)
+					{
+						alert(JSON.stringify(data));
+					}
+
+
+
+		});	
+
+
+
+
+
+	});
 
 	$('#sel_client').on('change',function(){
       var clientID = this.value;

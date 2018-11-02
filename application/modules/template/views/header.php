@@ -193,7 +193,7 @@
         <li class="treeview">
        <?php if(!empty($permissions)) { ?>
             <?php if(in_array('user_add', $permissions) || in_array('user_list', $permissions)){ ?>
-              <a href="#"><i class="fas fa-money-bill"></i> <span style="padding-left:1em;"> Bill Types </span>
+              <a href="#"><i class="fas fa-money-bill"></i> <span style="padding-left:1em;"> Bill Types Master </span>
                 <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>

@@ -4,12 +4,12 @@
 	<section class="content container-fluid">
     	<div class="row">
 			<div class="col-xs-12">
-				<div class="box">
+			<div class="box">
 					<div class="box-header">
-						<h1 class="box-title">Bill Types List</h1>
+						<h1 class="box-title">Sub Activities  List</h1>
 						<div class="box-tools pull-right">
 							<?php if(in_array('job_add', $permissions)){ ?>
-								<a class="btn btn-block btn-primary" href="<?php echo base_url()?>billtypes/addTypes">Add Bill Type</a>
+								<a class="btn btn-block btn-primary" href="<?php echo base_url()?>billtypes/addActivity">Add Subactivity </a>
 							<?php } ?>
 						</div>
 					</div>
@@ -54,8 +54,9 @@
 									<tr>
 										<td>	<?php echo ++$i; ?></td>
 									  <!--	<td>	<?php // echo $item['bill_abbreviation']; ?></td> -->
+									  	<td> <?php  echo $item['abbreviation_name']; ?></td>
 										<td>	<?php echo $item['activity_name']; ?></td>
-										<td> <?php  echo $item['abbreviation_name']; ?></td>
+									
                                       
 										<?php } ?>
                                            

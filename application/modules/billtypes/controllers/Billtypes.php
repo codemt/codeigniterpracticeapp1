@@ -334,9 +334,22 @@ class BillTypes extends MX_Controller {
 	$data = $this->input->post();
 	//print_r($data);
 
+	$get_bill_name = $this->types_model->getBillName($data['bill_type_id']);
+
+
+	$bill_name_json =  json_encode($get_bill_name,true);
+	$bill_name = json_decode($bill_name_json,true);
+	
+	// print_r($bill_name);
+
+	$data['abbreviation_name'] = $bill_name[0]['bill_type'];
+	// echo " Hello";
+	// echo $bill_name[0]['bill_type'];
 	$save_activity_data = $this->types_model->saveActivityData($data);
 
-	echo $save_activity_data;
+
+	redirect('billtypes/getSubTypes');
+	//echo $save_activity_data;
 
 
   }
@@ -390,6 +403,20 @@ class BillTypes extends MX_Controller {
 	$this->load->view('template/header', $data);
 	$this->load->view('subactivities_list');
 	$this->load->view('template/footer');
+
+
+
+
+}
+
+public function getSubTypesJSON(){
+
+
+
+	$bill_types = 	$this->types_model->getSubTypes();
+
+
+	echo json_encode($bill_types);
 
 
 

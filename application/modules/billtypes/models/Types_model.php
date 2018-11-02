@@ -129,8 +129,8 @@ function getLastRow($table,$column)
 
 
 
-			//$bill_type_id = $data['bill_type'];
 
+			print_r($data);
 			//$activity_name = $data['activity_name'];
 
 			//unset($data['abbreviation_name']);
@@ -173,7 +173,7 @@ function getLastRow($table,$column)
 
 
 			$query = $this->db->select('*')
-			->from('bill_abbreviation')
+			->from('billtypes')
 			->get();
 
 			return $query->result_array();
@@ -402,6 +402,26 @@ function getLastRow($table,$column)
 											
 											
 											  }
+
+
+
+ public function getBillName($id){
+
+
+
+	echo $id;
+	
+	$query = $this->db->select('bill_type')
+				->from('billtypes')
+				->where('id',$id)
+				->get();
+
+
+	return $query->result_array();
+
+
+
+}
 
 
 }

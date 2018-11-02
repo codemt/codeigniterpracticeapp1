@@ -32,7 +32,7 @@
 											<?php if (form_error('client_id')) echo form_error('client_id'); ?>
 										</div>
 								</div>
-							<div class="form-group col-xs-12 col-sm-6">
+							<!-- <div class="form-group col-xs-12 col-sm-6">
 									<label class="col-xs-3 control-label">Bill Type  Abbreviation:</label>
 									<div class="col-xs-9">
 										<select name="abbreviation_name" id="abbreviation_id" class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true"> 
@@ -40,7 +40,7 @@
 										</select>
 										<?php if (form_error('client_id')) echo form_error('client_id'); ?>
 									</div>
-							</div>
+							</div> -->
 							<div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label"> Sub Activity Name:</label>
 								<div class="col-xs-9">
