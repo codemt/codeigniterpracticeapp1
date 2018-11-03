@@ -27,11 +27,35 @@ class Reports_model extends CI_Model {
 		}
 
 
-		$this->db->select('DATE_FORMAT(job.job_date, "%d-%m-%Y"),client.name,job.brand_name,job.bill_type,CONCAT(bill_type,"/",job_no,"/",job.year) as jobnumber,job_status,DATE_FORMAT(job.updated_at, "%d-%m-%Y"),bill_date,bill_no,bill_amount')
-						  ->from('job')
-						  ->where($wher)
-						  ->join('client','client.client_id = job.client_id')
-						  ->join('user_client','user_client.user_id = "'.$userid.'" and client.client_id = user_client.client_id');
+		if($wher['job.bill_type'] === 'All'){
+
+
+
+			unset($wher['job.bill_type']);
+			//unset($wher['job.brand_name']);
+			$this->db->select('DATE_FORMAT(job.job_date, "%d-%m-%Y"),client.name,job.brand_name,job.bill_type,CONCAT(bill_type,"/",job_no,"/",job.year) as jobnumber,job_status,DATE_FORMAT(job.updated_at, "%d-%m-%Y"),bill_date,bill_no,bill_amount')
+			->from('job')
+			->where($wher)
+			->join('client','client.client_id = job.client_id')
+			->join('user_client','user_client.user_id = "'.$userid.'" and client.client_id = user_client.client_id');
+
+
+		}
+		else{
+
+			$this->db->select('DATE_FORMAT(job.job_date, "%d-%m-%Y"),client.name,job.brand_name,job.bill_type,CONCAT(bill_type,"/",job_no,"/",job.year) as jobnumber,job_status,DATE_FORMAT(job.updated_at, "%d-%m-%Y"),bill_date,bill_no,bill_amount')
+			->from('job')
+			 ->where($wher)
+			->join('client','client.client_id = job.client_id')
+			->join('user_client','user_client.user_id = "'.$userid.'" and client.client_id = user_client.client_id');
+
+
+
+
+
+
+		}
+		
 		if ($data['from_date']!= "") {	
 			$this->db->where('job_date >=', date('Y-m-d', strtotime($data['from_date'])));
 		}
@@ -45,6 +69,9 @@ class Reports_model extends CI_Model {
 				 
 		$query = $this->db->get();		  
 		$response = $query->result_array();
+
+		// print_r($response);
+		// exit();
 
    		 return $response;
 	}

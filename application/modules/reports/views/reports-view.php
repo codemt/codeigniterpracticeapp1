@@ -10,6 +10,7 @@
 					<div class="box-header with-border">
 						<h3 class="box-title">Reports</h3>
 					</div>
+					  <div class="containter" style="text-align:center;"> <?php echo validation_errors(); ?> </div>
 					<form role="form" method="post" action="<?php echo base_url();?>reports/download" class="form-horizontal">
 						<div class="box-body">
 							<div class="form-group col-xs-12 col-sm-6">
@@ -41,7 +42,8 @@
 								<label class="col-xs-3 control-label">Bill Type:</label>
 								<div class="col-xs-9">
 									<select class="form-control select2" name="bill_type" style="width: 100%;" tabindex="-1" aria-hidden="true" id="subactivity">
-										<option disabled selected value=""></option>
+										<option  value="All">All</option>
+										<!-- <option disabled selected value=""></option> -->
 										
 									</select>
 								</div>
@@ -82,7 +84,7 @@
 							<div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">From:</label>
 								<div class="col-xs-9">
-									<div class="input-group date" id="fromDate">
+									<div class="input-group date" name="fromDate" id="fromDate">
 										<div class="input-group-addon">
 											<i class="fa fa-calendar"></i>
 										</div>
@@ -93,7 +95,7 @@
 							<div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">To:</label>
 								<div class="col-xs-9">
-									<div class="input-group date" id="toDate">
+									<div class="input-group date" name="toDate" id="toDate">
 										<div class="input-group-addon">
 											<i class="fa fa-calendar"></i>
 										</div>
@@ -141,7 +143,7 @@
 						//$('#sel_brand').find('option').not(':first').remove();
 
 						// Add options
-						$('#subactivity').empty();	
+						//$('#subactivity').empty();	
 						$.each(data, function (i, item) {
 
 
