@@ -191,13 +191,31 @@
     });
   });
 
-	$(function () {
-		$('.select2').select2()
-		$('#fromDate').datepicker({
-			autoclose: true
-		})
-		$('#toDate').datepicker({
-			autoclose: true
-		})
-	})
+	$(document).ready(function(){
+
+
+
+			$('.select2').select2()
+			$('#fromDate').datepicker({
+
+
+				format: 'dd-mm-yyyy',
+				autoclose: true,
+				orientation: "bottom"
+
+
+			})
+			$('#toDate').datepicker({
+
+				format: 'dd-mm-yyyy',
+				autoclose: true,
+				orientation: "bottom"
+			})
+
+
+
+
+	 });
+		
+	
 </script>
