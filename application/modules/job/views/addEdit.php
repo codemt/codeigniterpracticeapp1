@@ -96,6 +96,7 @@
 								<div class="col-xs-9">
 									<select  name="job_status" disabled class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true">
 										<option></option>
+										<option value="Pending for billing" <?php echo (!empty($data['job_status']) && $data['job_status']=="Work in Progress")? "selected":"";?>>Work in Progress</option>
 										<option value="Pending for billing" <?php echo (!empty($data['job_status']) && $data['job_status']=="Pending for billing")? "selected":"";?>>Pending for billing</option>
 										<option value="Billed" <?php echo (!empty($data['job_status']) && $data['job_status']=="Billed")? "selected":"";?>>Billed</option>
 										<option value="Finished Jobs" <?php echo (!empty($data['job_status']) && $data['job_status']=="Finished Jobs")? "selected":"";?>>Finished Jobs</option>
@@ -430,6 +431,7 @@ $(function () {
 										//$('#sel_brand').find('option').not(':first').remove();
 
 										// Add options
+										$('#subactivity').empty();
 										$.each(data, function (i, item) {
 
 											$("#subactivity").append("<option value='"+item.activity_name+"'>" + item.activity_name + "</option>");
@@ -1004,7 +1006,7 @@ $(function () {
 
 			$.ajax({
 
-						url:'<?php echo base_url();?>billtypes/getTypes',
+						url:'<?php echo base_url();?>billtypes/getPHTypes',
 						method: 'get',
 						// data: {clientID: clientID, },
 						// dataType: 'json',

@@ -73,6 +73,7 @@
 										<option disabled selected value=""></option>
 										<option value="Pending for billing">Pending for billing</option>
 										<option value="Billed">Billed</option>
+										<option value="Work in Progress">Work in Progress</option>
 										<option value="Finished Jobs">Finished Jobs</option>
 										<option value="Closed Layouts">Closed Layouts</option>
 									</select>

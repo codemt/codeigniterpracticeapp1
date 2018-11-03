@@ -59,6 +59,8 @@ class Job extends MX_Controller {
 		$data['permissions'] = $this->login_model->getPermissions();
     	$user_id = $this->login_model->get_user_id();
 		$data['client'] = $this->brief_model->getClient($user_id);
+
+		//print_r($data);
 		$this->load->view('template/header', $data);
 		$this->load->view('addEdit',$data);
 		$this->load->view('template/footer');
@@ -191,11 +193,11 @@ class Job extends MX_Controller {
 				elseif ($data['stages'] == "Artwork" && $data['billable'] == "No") {
 					$data['job_status'] = 'Finished Jobs';
 				}else {
-					$data['job_status'] = "";
+					$data['job_status'] = "Work in Progress";
 				}
 
 			} else {
-				$data['job_status'] = "";
+				$data['job_status'] = "Work in Progress";
 			}
 			unset($data['_wysihtml5_mode']);
 			$data['updated_by'] = $this->login_model->get_user_id();
