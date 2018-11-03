@@ -367,13 +367,12 @@ class BillTypes extends MX_Controller {
   public function deleteType($id){
 
 
-
-		//echo $id;
-
 		$delete_type = $this->types_model->deleteType($id);
 
 		$this->session->set_flashdata('message', 'Bill Type Deleted Successfully');
 		redirect('billtypes/getTypes');
+
+		
 
 	
   }
