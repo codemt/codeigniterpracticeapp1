@@ -411,7 +411,7 @@ $(function () {
 		$('#briefDate').val($(this).data('brief-date'))
 	})
 	$('#billType').on('change', function() {
-		$(document).
+	
 		var billType = this.value;
 		switch (billType) { 
 			case 'AW': 
