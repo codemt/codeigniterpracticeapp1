@@ -116,11 +116,11 @@ function getLastRow($table,$column)
 	 function getAbbreviations(){
 
 
-		$query = $this->db->select('*')
-				->from('bill_abbreviation')
-				->get();
+		// $query = $this->db->select('*')
+		// 		->from('bill_abbreviation')
+		// 		->get();
 
-			return $query->result_array();
+		// 	return $query->result_array();
 
 
 	 }
