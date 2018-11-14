@@ -46,7 +46,9 @@ class Job extends MX_Controller {
     		$result = $this->job_model->get($id);
     		$data['data'] = $result[0];
     		$data['title'] = "Edit Job";
-            $out = $this->job_model->get_brief_no_detail($data['data']['brief_id']);
+			$out = $this->job_model->get_brief_no_detail($data['data']['brief_id']);
+			// print_r($data);
+			// exit();
             $data['briefnumber'] = $out[0]['briefnumber'];
             $data['briefdate'] = $out[0]['Brief_Date'];
     	}
@@ -184,10 +186,10 @@ class Job extends MX_Controller {
 				if($data['stages'] == "Layout"){
 					$data['job_status'] = 'Closed Layouts';
 				}
-				elseif ($data['stages'] == "Artwork" && $data['billable'] == "Yes" && !empty($data['bill_no']) && !empty($data['bill_date'])) {
+				elseif (($data['stages'] == "Artwork" || $data['stages'] == 'NA')  && $data['billable'] == "Yes" && !empty($data['bill_no']) && !empty($data['bill_date'])) {
 					$data['job_status'] = 'Billed';
 				}
-				elseif ($data['stages'] == "Artwork" && $data['billable'] == "Yes") {
+				elseif (($data['stages'] == "Artwork" || $data['stages'] == 'NA')  && $data['billable'] == "Yes") {
 					$data['job_status'] = 'Pending for billing';
 				}
 				elseif ($data['stages'] == "Artwork" && $data['billable'] == "No") {

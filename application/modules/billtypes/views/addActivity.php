@@ -6,7 +6,6 @@
 		
 		<div class="row">
 			<div class="col-xs-12">
-			
 				<form role="form" method="post" action="<?php echo base_url()?>billtypes/saveActivity" class="form-horizontal">
 					<div class="box">
 						<div class="box-header with-border">
@@ -47,6 +46,7 @@
 									<input value="<?php  echo (!empty($data['job_title']))? $data['job_title'] : ''; ?>" type="text" name="activity_name" class="form-control" id="activity_name">
 									<?php if (form_error('job_title')) echo form_error('job_title'); ?>
 								</div>
+								<?php if (form_error('activity_name')) echo form_error('activity_name'); ?>
                             </div>
 
 

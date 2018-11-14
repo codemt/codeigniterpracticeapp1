@@ -60,6 +60,7 @@ class Reports extends MX_Controller {
 		$this->form_validation->set_rules('from_date', 'From ', 'required');
 		$this->form_validation->set_rules('to_date', 'To ', 'required');
 		$this->form_validation->set_rules('brand_name','Brand','required');
+		$this->form_validation->set_error_delimiters('<p class="error">', '</p>');
 
 		if($this->form_validation->run() == FALSE){ 
 

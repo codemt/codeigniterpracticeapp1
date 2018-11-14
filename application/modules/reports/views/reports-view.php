@@ -10,7 +10,6 @@
 					<div class="box-header with-border">
 						<h3 class="box-title">Reports</h3>
 					</div>
-					  <div class="containter" style="text-align:center;"> <?php echo validation_errors(); ?> </div>
 					<form role="form" method="post" action="<?php echo base_url();?>reports/download" class="form-horizontal">
 						<div class="box-body">
 							<div class="form-group col-xs-12 col-sm-6">
@@ -22,6 +21,7 @@
 											<option value="<?php echo $item->client_id; ?>"><?php echo $item->name; ?></option>
 										<?php } ?>
 									</select>
+									<?php if (form_error('name')) echo form_error('name'); ?>
 								</div>
 							</div>
 							<div class="form-group col-xs-12 col-sm-6">
@@ -36,6 +36,7 @@
 									
 									
 								</select>
+								<?php if (form_error('brand_name')) echo form_error('brand_name'); ?>
 								</div>
 							</div>
 							<div class="form-group col-xs-12 col-sm-6">
@@ -89,7 +90,9 @@
 											<i class="fa fa-calendar"></i>
 										</div>
 										<input name="from_date" type="text" class="form-control">
+										
 									</div>
+									<?php if (form_error('from_date')) echo form_error('from_date'); ?>
 								</div>
 							</div>
 							<div class="form-group col-xs-12 col-sm-6">
@@ -101,6 +104,7 @@
 										</div>
 										<input name="to_date" type="text" class="form-control">
 									</div>
+									<?php if (form_error('to_date')) echo form_error('to_date'); ?>
 								</div>
 							</div>
 						</div>

@@ -264,6 +264,8 @@ class BillTypes extends MX_Controller {
 
 
 
+
+
 		$data['permissions'] = $this->login_model->getPermissions();
 		$data['title'] = "Add Bill Type ";
     	$user_id = $this->login_model->get_user_id();
@@ -279,18 +281,50 @@ class BillTypes extends MX_Controller {
 
   public function saveTypes(){
 
+	
+
 
 				$data = $this->input->post();
 
-				// print_r($data);
-				// exit();
-			$save_data = $this->types_model->saveTypesData($data);
+				$this->form_validation->set_rules('bill_type', 'Bill Type', 'required');
+				$this->form_validation->set_error_delimiters('<p class="error">', '</p>');
+
+				if($this->form_validation->run() == FALSE){
+			
+			
+					$data['permissions'] = $this->login_model->getPermissions();
+					$data['title'] = "Add Bill Type ";
+					$user_id = $this->login_model->get_user_id();
+					$data['client'] = $this->brief_model->getClient($user_id);
+					$this->load->view('template/header', $data);
+					$this->load->view('newEdit',$data);
+					$this->load->view('template/footer');
+			
+			
+					
+				  }
+				  else{
 
 
-			$this->session->set_flashdata('message', 'Bill Type Added Succesfully');
-			redirect('billtypes/getTypes');
-			// print_r($save_data);
-				//print_r($save_data);
+
+							// print_r($data);
+							// exit();
+						$save_data = $this->types_model->saveTypesData($data);
+
+
+						$this->session->set_flashdata('message', 'Bill Type Added Succesfully');
+						redirect('billtypes/getTypes');
+						// print_r($save_data);
+							//print_r($save_data);
+
+
+
+
+
+
+
+				  }
+
 
 
 
@@ -334,22 +368,54 @@ class BillTypes extends MX_Controller {
 	$data = $this->input->post();
 	//print_r($data);
 
-	$get_bill_name = $this->types_model->getBillName($data['bill_type_id']);
+
+	$this->form_validation->set_rules('activity_name', 'Activity Name', 'required');
+	$this->form_validation->set_error_delimiters('<p class="error">', '</p>');
+
+	if($this->form_validation->run() == FALSE){ 
 
 
-	$bill_name_json =  json_encode($get_bill_name,true);
-	$bill_name = json_decode($bill_name_json,true);
+
+		$data['permissions'] = $this->login_model->getPermissions();
+		$data['title'] = "Bill Types List";
+    	$user_id = $this->login_model->get_user_id();
+		$data['jobs'] = $this->types_model->getBillTypes();
+		
+		// print_r($data['jobs']);
+		//  exit();
+		$this->load->view('template/header', $data);
+		$this->load->view('addActivity');
+		$this->load->view('template/footer');
+
+
+
+
+
+	 }
+	 else{
+
+			$get_bill_name = $this->types_model->getBillName($data['bill_type_id']);
+
+
+			$bill_name_json =  json_encode($get_bill_name,true);
+			$bill_name = json_decode($bill_name_json,true);
+			
+			// print_r($bill_name);
+
+			$data['abbreviation_name'] = $bill_name[0]['bill_type'];
+			// echo " Hello";
+			// echo $bill_name[0]['bill_type'];
+			$save_activity_data = $this->types_model->saveActivityData($data);
+
+			$this->session->set_flashdata('message', 'Sub Activity Added Successfully');
+			redirect('billtypes/getSubTypes');
+			//echo $save_activity_data;
+
+
+
+	 }
+
 	
-	// print_r($bill_name);
-
-	$data['abbreviation_name'] = $bill_name[0]['bill_type'];
-	// echo " Hello";
-	// echo $bill_name[0]['bill_type'];
-	$save_activity_data = $this->types_model->saveActivityData($data);
-
-	$this->session->set_flashdata('message', 'Sub Activity Added Successfully');
-	redirect('billtypes/getSubTypes');
-	//echo $save_activity_data;
 
 
   }

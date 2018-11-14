@@ -92,7 +92,7 @@
 							</div>
 							<?php if(!empty($data['job_id'])){?>
 								<div class="form-group col-xs-12 col-sm-6">
-								<label class="col-xs-3 control-label">Status:</label>
+								<label class="col-xs-3 control-label">Job Status:</label>
 								<div class="col-xs-9">
 									<select  name="job_status" disabled class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true">
 										<option></option>
@@ -133,8 +133,8 @@
 							<div class="form-group col-xs-12 col-sm-6">
 								<label class="col-xs-3 control-label">Subactivity:</label>
 								<div class="col-xs-9">
-									<select name="subactivity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" id="subactivity">
-										<!--  -->
+									<select name="subactivity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" id="subactivity">					
+											<option> <?php echo  $data['subactivity'] ?></option>
 									</select>
 								</div>
 							</div>
@@ -143,7 +143,7 @@
 								<label class="col-xs-3 control-label">Stages:</label>
 								<div class="col-xs-9">
 									<select name="stages" id="stages" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true">
-										<option></option>
+										<option value="NA">NA</option>
 										<option value="Layout" <?php echo (!empty($data['stages']) && $data['stages']=="Layout")? "selected":"";?>>Layout</option>
 										<option value="Artwork" <?php echo (!empty($data['stages']) && $data['stages']=="Artwork")? "selected":"";?>>Artwork</option>
 									</select>
@@ -160,10 +160,10 @@
 								</div>
 							</div>
 							<div class="form-group col-xs-12 col-sm-6">
-								<label class="col-xs-3 control-label">Artwork:</label>
+								<label class="col-xs-3 control-label">Billing:</label>
 								<div class="col-xs-9">
 									<select name="artwork" id="sel_artwork" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true">
-										<option value="Billing Retainer" <?php echo (!empty($data['artwork']) && $data['artwork']=="Billing Retainer")? "selected":"";?>>Billing Retainer</option>
+										<option value="Retainer" <?php echo (!empty($data['artwork']) && $data['artwork']=="Retainer")? "selected":"";?>>Retainer</option>
 										<option value="Billing" <?php echo (!empty($data['Billing']) && $data['Billing']=="Billing")? "selected":"";?>>Billing</option>
 									</select>
 								</div>
@@ -350,7 +350,7 @@ $(document).ready(function(){
 	}
 	else
 	{
-		$('#sel_artwork').html('<option>Billing Retainer</option>');
+		$('#sel_artwork').html('<option>Retainer</option>');
 		$('#paymentbox').css('display','none');
 	}
 });
@@ -364,7 +364,7 @@ $('#sel_billable').on('change',function(){
 	}
 	else
 	{
-		$('#sel_artwork').html('<option>Billing Retainer</option>');
+		$('#sel_artwork').html('<option>Retainer</option>');
 		$('#paymentbox').css('display','none');
 	}
 
@@ -374,13 +374,13 @@ $('#stages').on('change', function() {
 	if(this.value=="Layout")
 	{
 		$('#sel_billable').html('<option value="No" selected="">No</option>');
-		$('#sel_artwork').html('<option selected="">Billing Retainer</option>');
+		$('#sel_artwork').html('<option selected="">Retainer</option>');
 		$('#paymentbox').css('display','block');
 	}
 	if(this.value=="Artwork")
 	{
 		$('#sel_billable').html('<option value="Yes" selected="">Yes</option><option value="No" selected="">No</option>');
-		$('#sel_artwork').html('<option>Billing</option><option>Billing Retainer</option>');
+		$('#sel_artwork').html('<option>Billing</option><option>Retainer</option>');
 		$('#paymentbox').css('display','none');
 	}
 })
@@ -411,6 +411,7 @@ $(function () {
 		$('#briefDate').val($(this).data('brief-date'))
 	})
 	$('#billType').on('change', function() {
+		$(document).
 		var billType = this.value;
 		switch (billType) { 
 			case 'AW': 
