@@ -134,7 +134,7 @@
 								<label class="col-xs-3 control-label">Subactivity:</label>
 								<div class="col-xs-9">
 									<select name="subactivity" class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" id="subactivity">					
-											<option> <?php echo  $data['subactivity'] ?></option>
+											<option value="<?php echo  $data['subactivity']  ?>"> <?php echo  $data['subactivity'] ?></option>
 									</select>
 								</div>
 							</div>
